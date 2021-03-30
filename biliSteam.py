@@ -29,7 +29,7 @@ for one in vlist:
 #写邮件
 for one in umake:
   title=one['title']
-  link=''
+  link=one['link']
   bvlink='https://bilibili.com/video/'+one['bv']
   md+="""\
 ### %s
