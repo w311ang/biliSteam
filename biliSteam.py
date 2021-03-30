@@ -46,6 +46,7 @@ content=markdown.markdown(md)
 #print(md)
 #print(checked)
 #print(umake)
+unmake=True
 if umake:
   pytools.update(qpass=qpass,qfrom=qfrom)
   pytools.qmail('biliSteam',content,'Steam福利更新了',html=True)
