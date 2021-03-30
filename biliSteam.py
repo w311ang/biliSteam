@@ -12,7 +12,7 @@ umake=[]
 content=''
 
 with open('checked.txt','rb') as file:
-  if os.stat('checked.txt').st_size:
+  if os.stat('checked.txt').st_size>1:
     checked=pickle.load(file)
 
 for one in vlist:
