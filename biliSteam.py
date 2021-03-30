@@ -33,6 +33,7 @@ for one in umake:
   title=one['title']
   link=one['link']
   bvlink='https://bilibili.com/video/'+one['bv']
+  md=''
   md+='## %s\n'%title
   md+=bvlink+'\n'
   md+='---\n'
