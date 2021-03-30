@@ -27,7 +27,7 @@ jobs:
     - name: Cache checked
       uses: actions/cache@v2
       with:
-        path: ~/checked.txt
+        path: ./checked.txt
         key: build-${{ github.run_id }}
         restore-keys: |
           build-
