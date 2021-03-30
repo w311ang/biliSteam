@@ -49,4 +49,5 @@ jobs:
         qpass: ${{ secrets.qpass }}
       run: |
         ls
+        cat checked.txt
         python biliSteam.py
