@@ -32,17 +32,17 @@ for one in vlist:
 #写邮件
 for one in umake:
   title=one['title']
-  link=one['link']
+  link=''
   bvlink='https://bilibili.com/video/'+one['bv']
-  for alink in link:
-    md+=alink+'\n\n'
+  for alink in one['link']:
+    link+='* %s\n'%alink
   md+="""
   ### %s
   %s
 
   ---
   %s
-  """
+  """%(title,bvlink,link)
 
 with open('checked.txt','wb') as file:
   pickle.dump(checked,file)
