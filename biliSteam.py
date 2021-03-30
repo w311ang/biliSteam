@@ -19,8 +19,8 @@ with open('checked.txt','rb') as file:
 
 for one in vlist:
   bvid=one['bvid']
-  #if not bvid in checked:
-  if True:
+  if not bvid in checked:
+  #if True:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
     link=re.search('(?<==\n)([\s\S]+)',des).group()
     link=link.replace('请相信我们的视频质量，值得你的关注！','')
@@ -49,7 +49,7 @@ content=markdown.markdown(md)
 #print(md)
 #print(checked)
 #print(umake)
-umake=True
+#umake=True
 if umake:
   pytools.update(qpass=qpass,qfrom=qfrom)
   pytools.qmail('biliSteam',content,'Steam福利更新了',html=True)
