@@ -34,12 +34,15 @@ for one in umake:
   title=one['title']
   link=one['link']
   bvlink='https://bilibili.com/video/'+one['bv']
-  md+='## %s\n\n'%title
-  md+=bvlink+'\n'
-  md+='---\n'
   for alink in link:
     md+=alink+'\n\n'
-  md+='\n\n'
+  md+="""
+  ### %s
+  %s
+
+  ---
+  %s
+  """
 
 with open('checked.txt','wb') as file:
   pickle.dump(checked,file)
