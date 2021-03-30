@@ -21,9 +21,9 @@ for one in vlist:
   if not bvid in checked:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
     link=re.findall('(?:https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]',des)
-    re='https://weidian.com/?userid=1025773260&wfr=mkt-item-detail&spider_token=7038'
-    if re in link:
-      link.remove(re)
+    move='https://weidian.com/?userid=1025773260&wfr=mkt-item-detail&spider_token=7038'
+    if move in link:
+      link.remove(move)
     bv=one['bvid']
     umake.append({'title':one['title'],'des':des,'link':link,'bv':bv})
     checked.append(bv)
