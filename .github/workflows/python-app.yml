@@ -35,20 +35,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Checkout pytools
-      uses: actions/checkout@v2
-      with:
-        repository: 'w311ang/pytools'
-        path: './pytools'
     - name: Setup pytools
       run: |
-        cp ./pytools/pytools.py .
+        curl -O https://raw.githubusercontent.com/w311ang/pytools/main/pytools.py
     - name: Run
       env:
         qfrom: ${{ secrets.qfrom }}
         qpass: ${{ secrets.qpass }}
       run: |
-        ls
-        echo >> checked.txt
         python biliSteam.py
-        cat checked.txt
