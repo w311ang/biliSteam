@@ -23,6 +23,7 @@ for one in vlist:
   if True:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
     link=re.search('(?<==\n)([\s\S]+)',des).group()
+    link=link.replace('请相信我们的视频质量，值得你的关注！','')
     link=link.replace('\n','\n\n')
     bv=one['bvid']
     umake.append({'title':one['title'],'des':des,'link':link,'bv':bv})
@@ -38,7 +39,7 @@ for one in umake:
 %s
 
 ---
-%s\
+%s
 """%(title,bvlink,link)
 
 with open('checked.txt','wb') as file:
