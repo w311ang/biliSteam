@@ -47,4 +47,4 @@ with open('checked.txt','wb') as file:
 content=markdown.markdown(md)
 print(content)
 pytools.update(qpass=qpass,qfrom=qfrom)
-pytools.qmail('biliSteam',content,'快来白嫖Steam库！')
+pytools.qmail('biliSteam',content,'快来白嫖Steam库！',html=True)
