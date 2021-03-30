@@ -19,7 +19,8 @@ with open('checked.txt','rb') as file:
 
 for one in vlist:
   bvid=one['bvid']
-  if not bvid in checked:
+  #if not bvid in checked:
+  if True:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
     link=re.findall('(?<==\n)([\s\S]+)',des)
     bv=one['bvid']
