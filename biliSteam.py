@@ -11,6 +11,7 @@ qpass=os.getenv('qpass')
 qfrom=os.getenv('qfrom')
 umake=[]
 content=''
+md=''
 
 with open('checked.txt','rb') as file:
   if os.stat('checked.txt').st_size>1:
@@ -33,18 +34,17 @@ for one in umake:
   title=one['title']
   link=one['link']
   bvlink='https://bilibili.com/video/'+one['bv']
-  md=''
   md+='## %s\n\n'%title
   md+=bvlink+'\n'
   md+='---\n'
   for alink in link:
     md+=alink+'\n\n'
   md+='\n\n'
-  content=markdown.markdown(md)
 
 with open('checked.txt','wb') as file:
   pickle.dump(checked,file)
 
+content=markdown.markdown(md)
 print(content)
 pytools.update(qpass=qpass,qfrom=qfrom)
 pytools.qmail('biliSteam',content,'快来白嫖Steam库！')
