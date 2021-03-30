@@ -48,4 +48,5 @@ jobs:
         qfrom: ${{ secrets.qfrom }}
         qpass: ${{ secrets.qpass }}
       run: |
+        ls
         python biliSteam.py
