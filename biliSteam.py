@@ -22,7 +22,7 @@ for one in vlist:
   #if not bvid in checked:
   if True:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
-    link=re.findall('(?<==\n)([\s\S]+)',des)
+    link=re.search('(?<==\n)([\s\S]+)',des).group()
     bv=one['bvid']
     umake.append({'title':one['title'],'des':des,'link':link,'bv':bv})
     checked.append(bv)
