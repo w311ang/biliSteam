@@ -35,7 +35,7 @@ for one in umake:
   link=''
   bvlink='https://bilibili.com/video/'+one['bv']
   for alink in one['link']:
-    link+='* %s\n'%alink
+    link+='1. %s\n'%alink
   md+="""\
 ### %s
 %s
