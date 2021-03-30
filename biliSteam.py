@@ -34,11 +34,12 @@ for one in umake:
   link=one['link']
   bvlink='https://bilibili.com/video/'+one['bv']
   md=''
-  md+='## %s\n'%title
+  md+='## %s\n\n'%title
   md+=bvlink+'\n'
   md+='---\n'
   for alink in link:
-    md+=alink+'\n'
+    md+=alink+'\n\n'
+  md+='\n\n'
   content=markdown.markdown(md)
 
 with open('checked.txt','wb') as file:
