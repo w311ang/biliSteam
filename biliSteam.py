@@ -48,6 +48,6 @@ with open('checked.txt','wb') as file:
   pickle.dump(checked,file)
 
 content=markdown.markdown(md)
-print(umake)
+#print(md)
 pytools.update(qpass=qpass,qfrom=qfrom)
 pytools.qmail('biliSteam',content,'Steam福利更新了',html=True)
