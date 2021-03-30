@@ -19,6 +19,7 @@ with open('checked.txt','rb') as file:
 
 for one in vlist:
   bvid=one['bvid']
+  print(checked)
   if not bvid in checked:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
     link=re.findall('(?:https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]',des)
