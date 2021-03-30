@@ -48,6 +48,6 @@ jobs:
         qfrom: ${{ secrets.qfrom }}
         qpass: ${{ secrets.qpass }}
       run: |
-        cat checked.txt
+        echo >> checked.txt
         python biliSteam.py
         cat checked.txt
