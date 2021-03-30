@@ -49,5 +49,7 @@ with open('checked.txt','wb') as file:
 
 content=markdown.markdown(md)
 #print(md)
-pytools.update(qpass=qpass,qfrom=qfrom)
-pytools.qmail('biliSteam',content,'Steam福利更新了',html=True)
+print(checked)
+if umake:
+  pytools.update(qpass=qpass,qfrom=qfrom)
+  pytools.qmail('biliSteam',content,'Steam福利更新了',html=True)
