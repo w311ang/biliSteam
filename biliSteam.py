@@ -26,7 +26,8 @@ for one in vlist:
     link=link.replace('请相信我们的视频质量，值得你的关注！','')
     link=link.replace('\n','\n\n')
     bv=one['bvid']
-    umake.append({'title':one['title'],'des':des,'link':link,'bv':bv})
+    time=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(one['created']))
+    umake.append({'title':one['title'],'des':des,'link':link,'bv':bv,'time':time})
     checked.append(bv)
 
 #写邮件
@@ -38,9 +39,11 @@ for one in umake:
 ### %s
 %s
 
+%s
+
 ---
 %s
-"""%(title,bvlink,link)
+"""%(title,time,bvlink,link)
 
 with open('checked.txt','wb') as file:
   pickle.dump(checked,file)
