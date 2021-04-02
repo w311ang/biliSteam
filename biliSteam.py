@@ -35,6 +35,7 @@ for one in umake:
   title=one['title']
   link=one['link']
   bvlink='https://bilibili.com/video/'+one['bv']
+  time=one['time']
   md+="""\
 ### %s
 %s
