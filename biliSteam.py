@@ -19,8 +19,8 @@ with open('checked.txt','rb') as file:
 
 for one in vlist:
   bvid=one['bvid']
-  if not bvid in checked:
-  #if True:
+  #if not bvid in checked:
+  if True:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
     link=re.search('(?<==\n)([\s\S]+)',des).group()
     link=link.replace('请相信我们的视频质量，值得你的关注！','')
