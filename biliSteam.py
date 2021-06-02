@@ -23,7 +23,10 @@ for one in vlist:
   if not bvid in checked:
   #if True:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
-    link=re.search('(?<==\n)([\s\S]+)',des).group()
+    try:
+      link=re.search('(?<==\n)([\s\S]+)',des).group()
+    export AttributeError,a:
+      link=a
     link=link.replace('请相信我们的视频质量，值得你的关注！','')
     link=link.replace('\n','\n\n')
     bv=one['bvid']
