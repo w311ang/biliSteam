@@ -25,7 +25,7 @@ for one in vlist:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
     try:
       link=re.search('(?<==\n)([\s\S]+)',des).group()
-    except AttributeError,Argument:
+    except AttributeError, Argument:
       link=Argument
     link=link.replace('请相信我们的视频质量，值得你的关注！','')
     link=link.replace('\n','\n\n')
