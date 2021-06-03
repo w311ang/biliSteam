@@ -20,13 +20,15 @@ with open('checked.txt','rb') as file:
 
 for one in vlist:
   bvid=one['bvid']
+  aid=one['aid']
   if not bvid in checked:
   #if True:
     des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
     try:
-      link=re.search('(?<==\n)([\s\S]+)',des).group()
+      link=des
     except AttributeError:
-      link='无法从简介中找到链接'
+      link=requests.get('http://api.bilibili.com/x/v2/reply?type=1&oid=%s').json()['data']['upper']['top']['content']['message']
+    link=re.search('(?<==\n)([\s\S]+)',des).group()
     link=link.replace('请相信我们的视频质量，值得你的关注！','')
     link=link.replace('\n','\n\n')
     bv=one['bvid']
