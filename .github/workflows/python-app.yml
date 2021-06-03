@@ -43,6 +43,7 @@ jobs:
           build-
     - name: Install dependencies
       run: |
+        echo ${{ github.event.inputs.cache }} ${{ github.event_name }}
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Setup pytools
