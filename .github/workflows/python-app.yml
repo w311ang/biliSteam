@@ -35,7 +35,7 @@ jobs:
         python-version: 3.9
     - name: Cache checked
       uses: actions/cache@v2
-      if: ${{ github.event.inputs.cache == 'true' }} || ${{ github.event_name != 'push' }}
+      if: ${{ github.event.inputs.cache == 'true' || github.event_name != 'push' }}
       with:
         path: ./checked.txt
         key: build-${{ github.run_id }}
@@ -43,9 +43,6 @@ jobs:
           build-
     - name: Install dependencies
       run: |
-        echo ${{ github.event.inputs.cache }} ${{ github.event_name }}
-        echo ${{ github.event.inputs.cache == 'true' || github.event_name != 'push' }}
-        echo ${{ github.event.inputs.cache == 'true' }} ${{ github.event_name != 'push' }}
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Setup pytools
