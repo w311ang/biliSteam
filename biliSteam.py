@@ -28,7 +28,7 @@ for one in vlist:
       link=re.search('(?<==\n)([\s\S]+)',des).group()
     except AttributeError:
       top=requests.get('http://api.bilibili.com/x/v2/reply?type=1&oid=%s').json()['data']['upper']['top']['content']['message']
-      re.search('(?<==\n)([\s\S]+)',top).group()
+      link=re.search('(?<==\n)([\s\S]+)',top).group()
     link=link.replace('请相信我们的视频质量，值得你的关注！','')
     link=link.replace('\n','\n\n')
     bv=one['bvid']
