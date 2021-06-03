@@ -11,6 +11,11 @@ on:
   schedule:
     - cron: '30 */1 * * *'
   workflow_dispatch:
+    inputs:
+      cache:
+        description: 'Cache'     
+        required: false
+        default: 'true'
 
 jobs:
   build:
@@ -30,6 +35,7 @@ jobs:
         python-version: 3.9
     - name: Cache checked
       uses: actions/cache@v2
+      if: github.inputs.cache != 'false'
       with:
         path: ./checked.txt
         key: build-${{ github.run_id }}
