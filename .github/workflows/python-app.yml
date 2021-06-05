@@ -50,7 +50,7 @@ jobs:
         curl -O https://raw.githubusercontent.com/w311ang/pytools/main/pytools.py
     - name: Run
       env:
-        qfrom: ${{ secrets.sender }}
-        qpass: ${{ secrets.pass }}
+        qfrom: ${{ secrets.mail_sender }}
+        qpass: ${{ secrets.mail_password }}
       run: |
         python biliSteam.py
