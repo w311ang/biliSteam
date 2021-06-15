@@ -52,5 +52,9 @@ jobs:
       env:
         qfrom: ${{ secrets.mail_account }}
         qpass: ${{ secrets.mail_password }}
-      run: |
-        python biliSteam.py
+      uses: nick-invision/retry@v2
+      with:
+        timeout_minutes: 10
+        max_attempts: 3
+        command: |
+          python -u biliSteam.py
