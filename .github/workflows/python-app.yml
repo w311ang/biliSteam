@@ -52,6 +52,7 @@ jobs:
       env:
         qfrom: ${{ secrets.mail_account }}
         qpass: ${{ secrets.mail_password }}
+        token: ${{ secrets.token }}
       uses: nick-invision/retry@v2
       with:
         timeout_minutes: 10
