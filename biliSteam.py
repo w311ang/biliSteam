@@ -37,7 +37,7 @@ for one in vlist:
     bv=one['bvid']
     created=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(one['created']))
 
-    with requests.post('http://api.bilibili.com/x/v2/reply/add',params={'access_key':token,'type':1,'oid':aid,'message':choice(message)}) as resp:
+    with requests.post('http://api.bilibili.com/x/v2/reply/add',data={'access_key':token,'type':1,'oid':aid,'message':choice(message)}) as resp:
       json=resp.json()
       code=json['code']
       if code==0:
