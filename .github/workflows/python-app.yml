@@ -55,7 +55,7 @@ jobs:
         token: ${{ secrets.token }}
       uses: nick-invision/retry@v2
       with:
-        timeout_minutes: 10
+        timeout_minutes: 30
         max_attempts: 3
         command: |
           python -u biliSteam.py
