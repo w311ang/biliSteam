@@ -37,13 +37,14 @@ for one in vlist:
     bv=one['bvid']
     created=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(one['created']))
 
-    with requests.post('http://api.bilibili.com/x/v2/reply/add',data={'access_key':token,'type':1,'oid':aid,'message':choice(message)}) as resp:
-      json=resp.json()
-      code=json['code']
-      if code==0:
-        comment='抽奖评论发送成功'
-      else:
-        comment='抽奖评论发送失败，错误码%s'%code
+    #with requests.post('http://api.bilibili.com/x/v2/reply/add',data={'access_key':token,'type':1,'oid':aid,'message':choice(message)}) as resp:
+    #  json=resp.json()
+    #  code=json['code']
+    #  if code==0:
+    #    comment='抽奖评论发送成功'
+    #  else:
+    #    comment='抽奖评论发送失败，错误码%s'%code
+    comment='请手动发送抽奖评论'
 
     umake.append({'title':one['title'],'des':des,'link':link,'bv':bv,'time':created,'comment':comment})
     checked.append(bv)
