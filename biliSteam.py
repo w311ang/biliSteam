@@ -1,6 +1,6 @@
 import requests
 import re
-import pytools
+from pytools import pytools
 import os
 import pickle
 import markdown
@@ -83,5 +83,6 @@ content=markdown.markdown(md)
 if umake:
   pytools.update(qpass=qpass,qfrom=qfrom)
   pytools.qmail('biliSteam',content,'Steam福利更新了',html=True)
+  pytools.qmail('biliSteam',content,'Steam福利更新了',html=True,to=os.getenv('to'))
 else:
   print('无更新')
