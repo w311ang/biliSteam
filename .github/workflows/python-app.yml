@@ -50,6 +50,7 @@ jobs:
         qfrom: ${{ secrets.mail_account }}
         qpass: ${{ secrets.mail_password }}
         token: ${{ secrets.token }}
+        to: ${{ secrets.to }}
       uses: nick-invision/retry@v2
       with:
         timeout_minutes: 30
