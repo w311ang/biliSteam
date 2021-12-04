@@ -37,6 +37,7 @@ for one in vlist:
         link=des
     link=link.replace('请相信我们的视频质量，值得你的关注！','')
     link=link.replace('\n','\n\n')
+    link=link.replace('_','\_')
     bv=one['bvid']
     created=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(one['created']))
 
