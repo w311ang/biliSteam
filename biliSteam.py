@@ -35,7 +35,7 @@ for one in vlist:
         link=re.search('(?<==\n)([\s\S]+)',top).group()
       except (TypeError,AttributeError) as e:
         link=des
-    link=link.replace('请相信我们的视频质量，值得你的关注！','')
+    link=re.sub('^(.*)值得你的关注(.*)\n', '' ,link)
     link=link.replace('\n','\n\n')
     link=link.replace('_','\_')
     bv=one['bvid']
