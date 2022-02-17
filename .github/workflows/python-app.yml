@@ -43,6 +43,7 @@ jobs:
           build-
     - name: Install dependencies
       run: |
+        sudo apt-get install libxml2 libxslt
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run
