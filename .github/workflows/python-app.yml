@@ -57,3 +57,4 @@ jobs:
         max_attempts: 3
         command: |
           python -u biliSteam.py
+    - uses: gautamkrishnar/keepalive-workflow@master
