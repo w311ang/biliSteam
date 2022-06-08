@@ -13,6 +13,7 @@ qpass=os.getenv('qpass')
 qfrom=os.getenv('qfrom')
 umake=[]
 content=''
+specialgames=[]
 md=''
 token=os.getenv('token')
 message=['又有新游戏哦？','有抽奖吗，我来当分母','白嫖游戏啦','等待党的胜利！！！','我在B站有套房[doge]','给我给我给我给我给我给我给我给我给我给我给我给我给我给我[大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑]','免费领取一款随机游戏[doge]','[doge]哪有404.明明是打不开网址']
@@ -50,6 +51,8 @@ for one in vlist:
     #    comment='抽奖评论发送失败，错误码%s'%code
     comment='请手动发送抽奖评论'
 
+    specialgames+=re.findall('《(.*?)》',one['title'])
+
     umake.append({'title':one['title'],'des':des,'link':link,'bv':bv,'time':created,'comment':comment})
     checked.append(bv)
     time.sleep(60)
@@ -77,13 +80,14 @@ with open('checked.txt','wb') as file:
   pickle.dump(checked,file)
 
 content=markdown.markdown(md)
+mailtitle='Steam福利更新了' if not specialgames else 'Steam福利更新了: '+', '.join(specialgames)
 #print(md)
 #print(checked)
 #print(umake)
 #umake=True
 if umake:
   pytools.update(qpass=qpass,qfrom=qfrom)
-  pytools.qmail('biliSteam',content,'Steam福利更新了',html=True)
-  pytools.qmail('biliSteam',content,'Steam福利更新了',html=True,to=os.getenv('to'))
+  pytools.qmail('biliSteam',content,mailtitle,html=True)
+  pytools.qmail('biliSteam',content,mailtitle,html=True,to=os.getenv('to'))
 else:
   print('无更新')
