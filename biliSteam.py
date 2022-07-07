@@ -51,7 +51,7 @@ for one in vlist:
     #    comment='抽奖评论发送失败，错误码%s'%code
     comment='请手动发送抽奖评论'
 
-    specialgames+=re.findall('《(.*?)》',(one['title']+one['content']).replace('：',':'))
+    specialgames+=re.findall('《(.*?)》',(one['title']+link).replace('：',':'))
     specialgames=[key for key in dict.fromkeys(specialgames).keys()]
 
     umake.append({'title':one['title'],'des':des,'link':link,'bv':bv,'time':created,'comment':comment})
