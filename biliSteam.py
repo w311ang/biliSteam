@@ -7,7 +7,10 @@ import markdown
 import time
 from random import choice
 
-vlist=requests.get('http://api.bilibili.com/x/space/arc/search?mid=518876755&pn=1&ps=10',headers={'User-Agent':'Mozilla/5.0 (Linux; Android 12; GM1910) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36'}).json()['data']['list']['vlist']
+s=requests.Session()
+s.headers.update({'User-Agent':'Mozilla/5.0 (Linux; Android 12; GM1910) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36'})
+
+vlist=s.get('http://api.bilibili.com/x/space/arc/search?mid=518876755&pn=1&ps=10').json()['data']['list']['vlist']
 checked=[]
 qpass=os.getenv('qpass')
 qfrom=os.getenv('qfrom')
@@ -27,12 +30,12 @@ for one in vlist:
   aid=one['aid']
   if not bvid in checked:
   #if True:
-    des=requests.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
+    des=s.get('http://api.bilibili.com/x/web-interface/archive/desc?bvid=%s'%bvid).json()['data']
     try:
       link=re.search('(?<==\n)([\s\S]+)',des).group()
     except AttributeError:
       try:
-        top=requests.get('http://api.bilibili.com/x/v2/reply?type=1&oid=%s'%aid).json()['data']['upper']['top']['content']['message']
+        top=s.get('http://api.bilibili.com/x/v2/reply?type=1&oid=%s'%aid).json()['data']['upper']['top']['content']['message']
         link=re.search('(?<==\n)([\s\S]+)',top).group()
       except (TypeError,AttributeError) as e:
         link=des
