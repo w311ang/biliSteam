@@ -40,6 +40,7 @@ for one in vlist:
       except (TypeError,AttributeError) as e:
         link=des
     link=re.sub('^(.*)值得你的关注(.*)\n', '' ,link)
+    link=re.sub('^(.*)值得你的关注(.*)', '' ,link)
     link=link.replace('\n','\n\n')
     link=link.replace('_','\_')
     bv=one['bvid']
