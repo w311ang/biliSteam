@@ -7,7 +7,7 @@ import markdown
 import time
 from random import choice
 
-vlist=requests.get('http://api.bilibili.com/x/space/arc/search?mid=518876755&pn=1&ps=10').json()['data']['list']['vlist']
+vlist=requests.get('http://api.bilibili.com/x/space/arc/search?mid=518876755&pn=1&ps=10',headers={'User-Agent':'Mozilla/5.0 (Linux; Android 12; GM1910) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36'}).json()['data']['list']['vlist']
 checked=[]
 qpass=os.getenv('qpass')
 qfrom=os.getenv('qfrom')
