@@ -1,3 +1,4 @@
 requests
 markdown
 git+https://github.com/w311ang/pytools.git@package
+fake_useragent
