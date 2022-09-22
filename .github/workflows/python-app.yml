@@ -71,6 +71,7 @@ jobs:
         qpass: ${{ secrets.mail_password }}
         token: ${{ secrets.token }}
         to: ${{ secrets.to }}
+        cookie: ${{ secrets.bilibili_cookie }}
       uses: nick-invision/retry@v2
       with:
         timeout_minutes: 30
