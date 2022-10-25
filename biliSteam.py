@@ -85,7 +85,7 @@ with open('checked.txt','wb') as file:
   pickle.dump(checked,file)
 
 content=markdown.markdown(md)
-mailtitle='Steam福利更新了' if not specialgames else 'Steam福利更新了: '+', '.join(specialgames)
+mailtitle='Steam福利更新了%s篇'%len(umake) if not specialgames else 'Steam福利更新了%s篇: '%len(umake)+', '.join(specialgames)
 #print(md)
 #print(checked)
 #print(umake)
