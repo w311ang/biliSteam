@@ -58,7 +58,8 @@ for one in vlist:
     specialgames+=re.findall('《(.*?)》',one['title'].replace('：',':'))
     specialgames=[key for key in dict.fromkeys(specialgames).keys()]
 
-    umake.append({'title':one['title'],'des':des,'link':link,'bv':bv,'time':created,'comment':comment})
+    if not re.search('^\[4K\]',one['title']):
+      umake.append({'title':one['title'],'des':des,'link':link,'bv':bv,'time':created,'comment':comment})
     checked.append(bv)
     time.sleep(5)
 
