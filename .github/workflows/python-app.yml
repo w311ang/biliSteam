@@ -76,6 +76,7 @@ jobs:
       with:
         timeout_minutes: 30
         max_attempts: 3
+        on_retry_command: sudo systemctl restart shadowsocks-libev-local@client
         command: |
           proxychains python -u biliSteam.py
     - uses: gautamkrishnar/keepalive-workflow@master
